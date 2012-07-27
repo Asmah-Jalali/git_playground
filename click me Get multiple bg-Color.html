@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<style type="text/css">
+	body{
+		background-color:#006;
+		-webkit-transition:all 500ms;
+	}
+	div.btns{
+        width:90px;
+		height:40px;
+		Position:absolute;
+		top:45%;
+		left:45%;
+		cursor:pointer;
+		-webkit-transition:all 500ms;	
+		background-color:#009;
+		font-weight:bold;
+		font-family:"Palatino Linotype";
+		text-align:center;
+		line-height:40px; 
+	}
+	       
+</style>
+<script type="text/javascript">
+	function rnd(x,y){
+		return Math.floor(Math.random()*(y-x+1))+x;
+	}
+	function randColor(){
+		var c="#";
+		for(var i=0;i<6;i++){
+			c+=rnd(0,15).toString(16);
+		}
+		return c ;
+	}
+	
+	window.onload= function(){
+		var btns=document.getElementsByClassName('btns');
+		for(var i=0;i<btns.length;i++){
+			btns.item(i).style.left=rnd(5,95)+'%';
+			btns.item(i).style.top=rnd(5,95)+'%';
+			btns.item(i).style.backgroundColor=randColor();		
+			btns.item(i).style.webkitTransform='rotate('+rnd(0,270)+'deg)'
+			btns.item(i).onmouseover=function(){
+				this.style.left=rnd(5,95)+'%';
+				this.style.top=rnd(5,95)+'%';
+				this.style.backgroundColor= randColor();
+				document.body.style.backgroundColor = randColor();
+				this.style.webkitTransform='rotate('+rnd(0,180)+'deg)';
+			}
+			
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+
+	<script type="text/javascript">
+        for (var j=0;j<100;j++){
+            document.write('<div class="btns">click me</div>');
+            }
+    </script>
+
+
+</body>
+</html>
